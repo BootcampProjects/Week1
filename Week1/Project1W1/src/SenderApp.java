@@ -40,5 +40,6 @@ public class SenderApp {
 
         user1.SendMessage(emailSender, messageUser3);
         user1.SendMessage(smsSender, messageUser3);
+
     }
 }

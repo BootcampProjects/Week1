@@ -37,7 +37,7 @@ public class User {
         this.smsCount = smsCount;
     }
 
-    public void SendMessage(ISender sender, Message message) {
-        sender.Send(this, message);
+    public boolean SendMessage(ISender sender, Message message) {
+        return sender.Send(this, message);
     }
 }
