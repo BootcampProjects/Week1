@@ -3,7 +3,7 @@ package Business;
 import Models.Message;
 import Models.User;
 
-public class SmsAndEmailSender implements ISender {
+public class SmsEmailSender implements ISender {
     @Override
     public boolean Send(User user, Message message) {
         if (user.getSmsCount() < 1000 && user.getEmailCount() < 10000) {

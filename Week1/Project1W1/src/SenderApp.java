@@ -1,5 +1,5 @@
 import Business.EmailSender;
-import Business.SmsAndEmailSender;
+import Business.SmsEmailSender;
 import Business.SmsSender;
 import Models.Message;
 import Models.User;
@@ -9,7 +9,7 @@ public class SenderApp {
 
         SmsSender smsSender = new SmsSender();
         EmailSender emailSender = new EmailSender();
-        SmsAndEmailSender smsAndEmailSender = new SmsAndEmailSender();
+        SmsEmailSender smsEmailSender = new SmsEmailSender();
 
         User user1 = new User("User1");
         User user2 = new User("User2");
@@ -26,7 +26,7 @@ public class SenderApp {
         user1.SendMessage(emailSender, messageUser1);
         user1.SendMessage(smsSender, messageUser1);
         user1.SendMessage(emailSender, messageUser1);
-        user1.SendMessage(smsAndEmailSender, messageUser1);
+        user1.SendMessage(smsEmailSender, messageUser1);
 
         System.out.println("\n");
 
@@ -34,7 +34,7 @@ public class SenderApp {
         user2.SendMessage(emailSender, messageUser2);
         user2.SendMessage(smsSender, messageUser2);
         user2.SendMessage(emailSender, messageUser2);
-        user2.SendMessage(smsAndEmailSender, messageUser2);
+        user2.SendMessage(smsEmailSender, messageUser2);
 
         System.out.println("\n");
 
