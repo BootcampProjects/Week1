@@ -40,7 +40,7 @@ public class Company {
     }
 
     public void SendSms(Sms sms, User user) {
-        SmsSender smsSender = new SmsSender(); // TODO : singleton
+        SmsSender smsSender = SmsSender.getInstance();
 
         MessageSendDTO messageSendDTO = new MessageSendDTO(this, sms, user.getName());
 
@@ -48,7 +48,7 @@ public class Company {
     }
 
     public void SendEmail(Email email, User user) {
-        EmailSender emailSender = new EmailSender();
+        EmailSender emailSender = EmailSender.getInstance();
 
         MessageSendDTO messageSendDTO = new MessageSendDTO(this, email, user.getName());
 

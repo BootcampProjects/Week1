@@ -5,6 +5,18 @@ import org.kodluyoruz.trendyol.model.Email;
 import org.kodluyoruz.trendyol.model.dto.MessageSendDTO;
 
 public class EmailSender implements MessageSender {
+    private static EmailSender instance = null;
+
+    private EmailSender() {
+    }
+
+    public static EmailSender getInstance() {
+        if (instance == null)
+            instance = new EmailSender();
+
+        return instance;
+    }
+
     @Override
     public void Send(MessageSendDTO messageSendDTO) {
         Company company = messageSendDTO.getCompany();
