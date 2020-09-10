@@ -1,5 +1,6 @@
 package org.kodluyoruz.trendyol.business;
 
+import org.kodluyoruz.trendyol.exception.MessageLimitException;
 import org.kodluyoruz.trendyol.model.Company;
 import org.kodluyoruz.trendyol.model.Sms;
 import org.kodluyoruz.trendyol.model.dto.MessageSendDTO;
@@ -29,7 +30,9 @@ public class SmsSender implements MessageSender {
                     " - content : " + sms.getContent() +
                     " - remaining SMS limit : " + company.getSmsLimit());
         } else {
-            // TODO : exception
+            System.out.println("OOPS! " + company.getName() +
+                    " - exceeded SMS limit" + company.getSmsLimit());
+            throw new MessageLimitException();
         }
     }
 }
