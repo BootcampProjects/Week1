@@ -1,5 +1,6 @@
 package org.kodluyoruz.trendyol.business;
 
+import org.kodluyoruz.trendyol.constant.ErrorMessage;
 import org.kodluyoruz.trendyol.exception.MessageLimitException;
 import org.kodluyoruz.trendyol.model.Company;
 import org.kodluyoruz.trendyol.model.Email;
@@ -33,7 +34,7 @@ public class EmailSender implements MessageSender {
         } else {
             System.out.println("OOPS! " + company.getName() +
                     " - exceeded Email limit" + company.getEmailLimit());
-            throw new MessageLimitException();
+            throw new MessageLimitException(ErrorMessage.messageLimitException(0)); // TODO : company language property
         }
 
     }
