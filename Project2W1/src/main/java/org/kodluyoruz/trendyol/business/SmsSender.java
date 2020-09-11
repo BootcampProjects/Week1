@@ -32,8 +32,8 @@ public class SmsSender implements MessageSender {
                     " - remaining SMS limit : " + company.getSmsLimit());
         } else {
             System.out.println("OOPS! " + company.getName() +
-                    " - exceeded SMS limit" + company.getSmsLimit());
-            throw new MessageLimitException(ErrorMessage.messageLimitException(0));
+                    " - exceeded SMS limit : " + company.getSmsLimit());
+            throw new MessageLimitException(ErrorMessage.messageLimitException(company.getLanguage()));
         }
     }
 }

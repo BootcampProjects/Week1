@@ -8,11 +8,13 @@ public class Company {
     private String name;
     private int smsLimit;
     private int emailLimit;
+    private int language; // 0 -> default ** 1 -> TR ** 2 -> EN
 
-    public Company(String name) {
+    public Company(String name, int language) {
         this.name = name;
         this.smsLimit = 1000;
         this.emailLimit = 10000;
+        this.language = language;
     }
 
     public String getName() {
@@ -37,6 +39,14 @@ public class Company {
 
     public void setEmailLimit(int emailLimit) {
         this.emailLimit = emailLimit;
+    }
+
+    public int getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(int language) {
+        this.language = language;
     }
 
     public void SendSms(Sms sms, User user) {

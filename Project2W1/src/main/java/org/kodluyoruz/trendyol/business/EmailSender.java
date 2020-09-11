@@ -33,8 +33,8 @@ public class EmailSender implements MessageSender {
                     " - remaining Email limit : " + company.getEmailLimit());
         } else {
             System.out.println("OOPS! " + company.getName() +
-                    " - exceeded Email limit" + company.getEmailLimit());
-            throw new MessageLimitException(ErrorMessage.messageLimitException(0)); // TODO : company language property
+                    " - exceeded Email limit : " + company.getEmailLimit());
+            throw new MessageLimitException(ErrorMessage.messageLimitException(company.getLanguage()));
         }
 
     }
