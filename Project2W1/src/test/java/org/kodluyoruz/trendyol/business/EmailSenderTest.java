@@ -43,17 +43,19 @@ public class EmailSenderTest {
     @Test
     public void it_should_throw_exception_when_email_limit_exceeded() {
         // given
-        // defined fields -> BeforeEach method
+        Company company = new Company("Comp1", 0); // language 0 -> Default
+        User user = new User("User1");
+        Email email = new Email("Email Test", "Test");
         int emailLimit = company.getEmailLimit();
+
+        // when
         for (int i = 0; i < emailLimit; i++) {
             company.SendEmail(email, user);
         }
-
-        // when
         Throwable throwable = catchThrowable(() -> company.SendEmail(email, user));
 
         // then
         assertThat(throwable).isInstanceOf(MessageLimitException.class);
-        assertThat(throwable).hasMessageContaining(ErrorMessage.messageLimitException(company.getLanguage()));
+        assertThat(throwable).hasMessage(ErrorMessage.messageLimitException(company.getLanguage()));
     }
 }
